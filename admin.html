@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Open PO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><h1>🔐 Panel Admin</h1><p>Kelola daftar pesanan Open PO</p></div>
+  <div class="header-actions">
+    <a class="admin-link" href="index.html">Lihat Daftar</a>
+    <button id="logoutBtn" class="btn danger">Logout</button>
+  </div>
+</header>
+
+<main class="container">
+  <section id="loginSection" class="login-box panel">
+    <h2>Login Admin</h2>
+    <p>Masuk menggunakan akun Firebase Authentication.</p>
+    <form id="loginForm">
+      <input id="email" type="email" placeholder="Email admin" required>
+      <input id="password" type="password" placeholder="Password" required>
+      <button class="btn primary" type="submit">Login</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+  </section>
+
+  <section id="adminSection" hidden>
+    <section class="stats">
+      <div class="card"><span>Total Pemesan</span><strong id="adminCustomers">0</strong></div>
+      <div class="card"><span>Total PCS</span><strong id="adminQty">0</strong></div>
+      <div class="card"><span>Pesanan Menunggu</span><strong id="adminWaiting">0</strong></div>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="panel-head"><div><h2 id="formTitle">Tambah Pesanan</h2><p>Masukkan data pemesan.</p></div></div>
+      <form id="orderForm" class="order-form">
+        <input type="hidden" id="orderId">
+        <div><label>Nama Pemesan</label><input id="name" required placeholder="Nama pelanggan"></div>
+        <div><label>Nomor WhatsApp</label><input id="phone" required placeholder="08xxxxxxxxxx"></div>
+        <div><label>Menu</label>
+          <select id="menu" required>
+            <option value="">Pilih menu</option>
+            <option>Ayam Original</option>
+            <option>Ayam Pedas</option>
+            <option>Jando</option>
+          </select>
+        </div>
+        <div><label>Jumlah (PCS)</label><input id="quantity" type="number" min="1" required></div>
+        <div><label>Status</label>
+          <select id="status">
+            <option>Menunggu</option><option>Diproses</option><option>Selesai</option><option>Dibatalkan</option>
+          </select>
+        </div>
+        <div class="full"><label>Catatan</label><textarea id="note" placeholder="Opsional"></textarea></div>
+        <div class="form-actions full">
+          <button class="btn primary" type="submit">Simpan Pesanan</button>
+          <button class="btn secondary" type="button" id="cancelEdit" hidden>Batal Edit</button>
+        </div>
+      </form>
+      <p id="formMessage" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>Kelola Pesanan</h2><p>Edit atau hapus data pesanan.</p></div>
+      <input id="adminSearch" type="search" placeholder="🔎 Cari pesanan..."></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Nama</th><th>WhatsApp</th><th>Menu</th><th>Jumlah</th><th>Status</th><th>Catatan</th><th>Aksi</th></tr></thead>
+          <tbody id="adminOrderList"><tr><td colspan="7" class="empty">Memuat data...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+<script type="module" src="admin.js"></script>
+</body>
+</html>

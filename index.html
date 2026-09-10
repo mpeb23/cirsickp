@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Pesanan Open PO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>📋 Daftar Pesanan Open PO</h1>
+    <p>Pesanan yang sudah tercatat</p>
+  </div>
+  <a class="admin-link" href="admin.html">Panel Admin</a>
+</header>
+
+<main class="container">
+  <section class="stats">
+    <div class="card"><span>Total Pemesan</span><strong id="totalCustomers">0</strong></div>
+    <div class="card"><span>Total Pesanan</span><strong id="totalQty">0</strong></div>
+    <div class="card"><span>Sedang Diproses</span><strong id="totalProcessing">0</strong></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div><h2>Daftar Pemesan</h2><p>Data diperbarui secara otomatis.</p></div>
+      <input id="searchInput" type="search" placeholder="🔎 Cari nama pemesan...">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>No</th><th>Nama Pemesan</th><th>Pesanan</th><th>Jumlah</th><th>Status</th></tr></thead>
+        <tbody id="orderList"><tr><td colspan="5" class="empty">Memuat data...</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>Open PO Cireng Isi</footer>
+<script type="module" src="script.js"></script>
+</body>
+</html>
